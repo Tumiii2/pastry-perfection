@@ -2,7 +2,7 @@
 
 A responsive bakery product page built from a custom Figma design, focused on practicing real-world layout and styling with HTML and CSS.
 
-**Live Demo:** [Add your deployed link here]
+**Live Demo:** https://tumiii2.github.io/pastry-perfection/
 **Design:** https://www.figma.com/design/l2NBnALvkAfUQzQ8MPENED/Pastry-Perfection---Product-Page?node-id=0-1&t=qV4rwyZbAtMxL57K-1
 
 ## About
