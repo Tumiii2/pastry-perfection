@@ -2,8 +2,8 @@ const button = document.querySelector(".add-to-cart");
 const message = document.getElementById("cart-message");
 button.addEventListener("click", function () {
   message.style.display = "block";
-  
-// Show "Added to cart" popup, then hide it after 2 seconds
+
+  // Show "Added to cart" popup, then hide it after 2 seconds
   setTimeout(function () {
     message.style.display = "none";
   }, 2000);
@@ -30,4 +30,13 @@ subscribeButton.addEventListener("click", function () {
   setTimeout(function () {
     newsletterMessage.style.display = "none";
   }, 2000);
+});
+
+// mobile screen drop down
+
+const hamburger = document.querySelector(".hamburger");
+const navBar = document.querySelector(".nav-bar");
+
+hamburger.addEventListener("click", function () {
+  navBar.classList.toggle("nav-open");
 });
