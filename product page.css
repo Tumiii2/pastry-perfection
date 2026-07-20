@@ -8,6 +8,24 @@ html {
   scroll-behavior: smooth;
 }
 
+h1,
+h2,
+h6,
+.pastry,
+.nav-bar a,
+.add-to-cart,
+.sub-email,
+.review-heading,
+.footer-heading h6,
+.links h6,
+.contact h6 {
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -22,6 +40,23 @@ html {
 .cart {
   font-size: 20px;
   color: #cfb53b;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #cfb53b;
+  color: #800020;
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger {
@@ -96,7 +131,6 @@ html {
   margin-top: 40px;
   gap: 225px;
   align-items: flex-start;
-  font-family: "playfair display", serif;
   padding: 0 86px;
 }
 
@@ -105,7 +139,7 @@ html {
 }
 
 .product-detail {
-  font-weight: 500;
+  font-weight: 400;
 }
 .donut {
   width: 600px;
@@ -136,7 +170,8 @@ html {
   @media (max-width: 1300px) {
     .donut {
       width: 100%;
-      height: 700px;
+      aspect-ratio: 1 / 1;
+      height: auto;
     }
   }
 
@@ -219,6 +254,7 @@ h2 {
 
 .rating {
   font-weight: 900;
+  font-family: "playfair display", serif;
 }
 
 .thumbnails {
@@ -235,9 +271,20 @@ h2 {
   object-fit: cover;
 }
 
+@media (max-width: 600px) {
+  .thumbnails {
+    justify-content: space-between;
+  }
+
+  .thumbnails img {
+    width: 18%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+
 .review-section {
   padding: 86px 86px 0 86px;
-  font-family: "playfair display", serif;
 }
 
 .review-heading {
@@ -262,7 +309,7 @@ h2 {
 .cards {
   border: 2px solid #800020;
   padding: 10px;
-  height: 150px;
+  min-height: 150px;
 }
 
 h6 {
@@ -297,7 +344,6 @@ h6 {
 .guarantee-section {
   padding: 86px;
   margin-bottom: 20px;
-  font-family: "playfair display", serif;
 }
 
 .guarantee-sub {
@@ -333,7 +379,6 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "playfair display", serif;
   border: 1px solid black;
 }
 
@@ -455,8 +500,8 @@ h6 {
   width: 100%;
   height: 330px;
   color: white;
-  font-weight: 100;
-  font-size: 13px;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .footer-heading h6 {
@@ -479,6 +524,40 @@ h6 {
   justify-content: center;
 }
 
+.links a:last-child,
+.contact a:last-child {
+  margin-bottom: 0;
+}
+.social-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.social-icons a {
+  margin-bottom: 0;
+}
+
+.social-icons i {
+  font-size: 22px;
+  color: #cfb53b;
+  transition: transform 0.2s ease;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  background-color: #5c0017;
+  color: #cfb53b;
+  font-size: 12px;
+  font-family: "playfair display", serif;
+}
+
 @media (max-width: 1300px) {
   .footer-section {
     flex-direction: column;
@@ -487,8 +566,6 @@ h6 {
     width: 100%;
     height: 100%;
     padding-top: 20px;
-    align-items: center;
-    text-align: center;
   }
 
   .links a {
@@ -501,3 +578,36 @@ h6 {
     gap: 10px;
   }
 }
+@media (max-width: 1200px) {
+  .footer-section {
+    padding: 0 24px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .donut-about {
+    padding: 0 20px;
+  }
+
+  .product-text {
+    padding: 20px;
+  }
+
+  .review-section {
+    padding: 40px 20px 0 20px;
+  }
+
+  .guarantee-section {
+    padding: 40px 20px;
+  }
+
+  .footer-section {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
