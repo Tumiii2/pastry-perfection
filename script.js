@@ -1,7 +1,12 @@
 const button = document.querySelector(".add-to-cart");
 const message = document.getElementById("cart-message");
+const cartCount = document.querySelector(".cart-count");
+let itemCount = 0;
 button.addEventListener("click", function () {
   message.style.display = "block";
+  // change cart count
+  itemCount++;
+  cartCount.textContent = itemCount;
 
   // Show "Added to cart" popup, then hide it after 2 seconds
   setTimeout(function () {
