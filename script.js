@@ -26,16 +26,101 @@ if (subscribeButton) {
   });
 }
 
-// Add to cart
+// ---------------------------------------------
+// CART CORE (shared across every page)
+// ---------------------------------------------
+
+// Turns "₦ 2,500" into 2500
+function parsePrice(priceStr) {
+  return Number(String(priceStr).replace(/[^0-9.]/g, ""));
+}
+
+// Formats 2500 back into "₦2,500"
+function formatPrice(amount) {
+  return "₦" + amount.toLocaleString("en-NG");
+}
+
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartDisplay();
+}
+
+// item = { id, name, price (number), image }
+function addToCart(item) {
+  const cart = getCart();
+  const existing = cart.find((cartItem) => cartItem.id === item.id);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ ...item, quantity: 1 });
+  }
+
+  saveCart(cart);
+}
+
+function removeFromCart(id) {
+  const cart = getCart().filter((item) => item.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+
+function updateQuantity(id, newQuantity) {
+  const cart = getCart();
+  const item = cart.find((cartItem) => cartItem.id === id);
+
+  if (!item) return;
+
+  if (newQuantity < 1) {
+    removeFromCart(id);
+    return;
+  }
+
+  item.quantity = newQuantity;
+  saveCart(cart);
+  renderCart();
+}
+
+function getCartCount() {
+  return getCart().reduce((total, item) => total + item.quantity, 0);
+}
+
+function getCartTotal() {
+  return getCart().reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+}
+
+function updateCartDisplay() {
+  const cartCountEl = document.querySelector(".cart-count");
+  if (cartCountEl) {
+    cartCountEl.textContent = getCartCount();
+  }
+}
+
+updateCartDisplay();
+
+// Add to cart (product page button)
 const addToCartButton = document.querySelector(".add-to-cart");
 const cartMessage = document.getElementById("cart-message");
 
 if (addToCartButton && cartMessage) {
   addToCartButton.addEventListener("click", function () {
-    const newCount = getCartCount() + 1;
-
-    localStorage.setItem("cartCount", newCount);
-    updateCartDisplay();
+    // `data` and `productId` are defined further down in this file,
+    // once the product-page block below has run.
+    if (typeof data !== "undefined" && data) {
+      addToCart({
+        id: productId,
+        name: data.name,
+        price: parsePrice(data.price),
+        image: data.image,
+      });
+    }
 
     cartMessage.style.display = "block";
 
@@ -45,20 +130,132 @@ if (addToCartButton && cartMessage) {
   });
 }
 
-// Cart count
-const cartCountEl = document.querySelector(".cart-count");
+// ---------------------------------------------
+// CART PAGE RENDERING (only runs on cart.html)
+// ---------------------------------------------
 
-function getCartCount() {
-  return parseInt(localStorage.getItem("cartCount")) || 0;
-}
+function renderCart() {
+  const cartItemsContainer = document.querySelector(".cart-items");
+  if (!cartItemsContainer) return; // not on cart.html, skip
 
-function updateCartDisplay() {
-  if (cartCountEl) {
-    cartCountEl.textContent = getCartCount();
+  const cart = getCart();
+  const cartEmptyMessage = document.querySelector(".cart-empty");
+  const cartSummary = document.querySelector(".cart-summary");
+  const cartTotalEl = document.querySelector(".cart-total-amount");
+
+  cartItemsContainer.innerHTML = "";
+
+  if (cart.length === 0) {
+    if (cartEmptyMessage) cartEmptyMessage.style.display = "block";
+    if (cartSummary) cartSummary.style.display = "none";
+    return;
   }
+
+  if (cartEmptyMessage) cartEmptyMessage.style.display = "none";
+  if (cartSummary) cartSummary.style.display = "flex";
+
+  cart.forEach((item) => {
+    const cartItemEl = document.createElement("div");
+    cartItemEl.classList.add("cart-item");
+    cartItemEl.dataset.id = item.id;
+
+    cartItemEl.innerHTML = `
+      <img src="${item.image}" alt="${item.name}" class="cart-item-img" />
+      <div class="cart-item-info">
+        <h3>${item.name}</h3>
+        <p class="cart-item-price">${formatPrice(item.price)}</p>
+      </div>
+      <div class="cart-item-qty">
+        <button class="qty-decrease" aria-label="Decrease quantity">-</button>
+        <span class="qty-value">${item.quantity}</span>
+        <button class="qty-increase" aria-label="Increase quantity">+</button>
+      </div>
+      <p class="cart-item-subtotal">${formatPrice(item.price * item.quantity)}</p>
+      <button class="remove-item" aria-label="Remove item">
+        <i class="ph ph-trash"></i>
+      </button>
+    `;
+
+    cartItemsContainer.appendChild(cartItemEl);
+  });
+
+  const cartSubtotalEl = document.querySelector(".cart-subtotal-amount");
+  const cartDeliveryEl = document.querySelector(".cart-delivery-amount");
+
+  if (cartSubtotalEl) cartSubtotalEl.textContent = formatPrice(getCartTotal());
+  if (cartDeliveryEl) cartDeliveryEl.textContent = formatPrice(DELIVERY_FEE);
+  if (cartTotalEl) {
+    cartTotalEl.textContent = formatPrice(getCartTotal() + DELIVERY_FEE);
+  }
+
+  // Wire up buttons for each rendered item
+  cartItemsContainer.querySelectorAll(".cart-item").forEach((cartItemEl) => {
+    const id = cartItemEl.dataset.id;
+    const item = cart.find((cartItem) => cartItem.id === id);
+
+    cartItemEl.querySelector(".qty-increase").addEventListener("click", () => {
+      updateQuantity(id, item.quantity + 1);
+    });
+
+    cartItemEl.querySelector(".qty-decrease").addEventListener("click", () => {
+      updateQuantity(id, item.quantity - 1);
+    });
+
+    cartItemEl.querySelector(".remove-item").addEventListener("click", () => {
+      removeFromCart(id);
+    });
+  });
 }
 
-updateCartDisplay();
+// ---------------------------------------------
+// CHECKOUT (cart page "Checkout" / "Order on WhatsApp")
+// ---------------------------------------------
+
+const DELIVERY_FEE = 1000; // adjust to whatever you charge
+
+function buildOrderMessage(cart) {
+  const subtotal = getCartTotal();
+  const total = subtotal + DELIVERY_FEE;
+
+  let message = `Hello Pastry Perfection!%0A%0AI would like to order:%0A%0A`;
+
+  cart.forEach((item) => {
+    message += `${item.name} (x${item.quantity}) - ${formatPrice(item.price * item.quantity)}%0A`;
+  });
+
+  message += `%0ASubtotal: ${formatPrice(subtotal)}`;
+  message += `%0ADelivery Fee: ${formatPrice(DELIVERY_FEE)}`;
+  message += `%0ATotal: ${formatPrice(total)}`;
+
+  return message;
+}
+
+function goToWhatsAppWithCart() {
+  const cart = getCart();
+  if (cart.length === 0) return;
+
+  const message = buildOrderMessage(cart);
+  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+
+  localStorage.removeItem("cart");
+  window.location.href = "order-confirmation.html";
+}
+
+const checkoutButton = document.querySelector(".checkout-btn");
+const whatsappCartButton = document.querySelector(".whatsapp-order-cart");
+
+if (checkoutButton) {
+  checkoutButton.addEventListener("click", goToWhatsAppWithCart);
+}
+
+if (whatsappCartButton) {
+  whatsappCartButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    goToWhatsAppWithCart();
+  });
+}
+
+renderCart();
 
 // Mobile screen drop down
 const hamburger = document.querySelector(".hamburger");

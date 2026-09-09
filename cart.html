@@ -1,11 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add to cart</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header-section">
+      <div class="page-header">
+        <div class="logo-circle">
+          <img class="logo" src="logo-new.png" alt="Patry Perfection Logo" />
+        </div>
+        <div class="header-icons">
+          <a href="cart.html" class="cart">
+            <i class="ph ph-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+          <div class="hamburger">
+            <i class="ph ph-list"></i>
+          </div>
+        </div>
+
+        <nav class="nav-bar">
+          <div>
+            <a href="#top">Home</a>
+          </div>
+
+          <div>
+            <a href="menu.html">Menu</a>
+          </div>
+
+          <div>
+            <a href="about-us.html">About</a>
+          </div>
+
+          <div>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="nav-search">
+            <i class="ph ph-magnifying-glass"></i>
+            <input type="search" placeholder="Search pastries..." />
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart-section">
+        <h1>Your Cart</h1>
+
+        <div class="cart-layout">
+          <div class="cart-items-column">
+            <div class="cart-empty">
+              <img
+                src="assets/cart-img (2).png"
+                alt="Empty cart"
+                class="cart-empty-img"
+              />
+              <h2>Nothing delicious here yet!</h2>
+              <p>
+                Discover freshly baked doughnuts, pastries, and cookies made
+                with love.
+              </p>
+              <a href="menu.html" class="btn-1">Explore Our Menu →</a>
+            </div>
+            <div class="cart-items"></div>
+          </div>
+
+          <div class="cart-summary">
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span class="cart-subtotal-amount">₦0</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Delivery Fee</span>
+              <span class="cart-delivery-amount">₦0</span>
+            </div>
+
+            <div class="summary-row cart-total-row">
+              <span>Total</span>
+              <span class="cart-total-amount">₦0</span>
+            </div>
+
+            <button class="checkout-btn">Checkout</button>
+
+            <p class="or-divider">or</p>
+
+            <a href="#" class="whatsapp-order-cart">
+              <i class="ph ph-whatsapp-logo"></i>
+              Order on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <a href="menu.html" class="cart-continue">← Continue Shopping</a>
+      </section>
+
+      <footer id="contact">
+        <div class="footer-section">
+          <div class="footer-heading">
+            <div class="logo-circle">
+              <img
+                class="logo"
+                src="logo-new.png"
+                alt=" Pastry Perfection Logo"
+              />
+            </div>
+            <div class="social-icons">
+              <a href="#"><i class="ph ph-tiktok-logo"></i></a>
+              <a href="#"><i class="ph ph-facebook-logo"></i></a>
+              <a href="#"><i class="ph ph-instagram-logo"></i></a>
+            </div>
+          </div>
+          <div class="links">
+            <h6>Links</h6>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about-us.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="customer-service">
+            <h6>Customer Service</h6>
+            <a href="#">FAQs</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Returns & Refund</a>
+            <a href="#">Terms & Conditions</a>
+          </div>
+
+          <div class="contact">
+            <h6>Contact Us</h6>
+            <div class="social-icons"></div>
+            <p><i class="ph ph-phone"></i>+234 703 413 6697</p>
+            <p>
+              <i class="ph ph-envelope-simple"></i>hello@pastryperfection.com
+            </p>
+            <p><i class="ph ph-map-pin-line"></i>Lagos, Nigeria</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Pastry Perfection. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>

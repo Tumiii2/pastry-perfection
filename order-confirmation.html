@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
+    <title>Order Confirmation</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -21,7 +21,7 @@
     />
   </head>
   <body>
-    <header>
+    <header class="header-section">
       <div class="page-header">
         <div class="logo-circle">
           <img class="logo" src="logo-new.png" alt="Patry Perfection Logo" />
@@ -38,7 +38,7 @@
 
         <nav class="nav-bar">
           <div>
-            <a href="index.html">Home</a>
+            <a href="#top">Home</a>
           </div>
 
           <div>
@@ -46,12 +46,13 @@
           </div>
 
           <div>
-            <a href="about-us.html" class="active-link">About </a>
+            <a href="about-us.html">About</a>
           </div>
 
           <div>
             <a href="contact.html">Contact</a>
           </div>
+
           <div class="nav-search">
             <i class="ph ph-magnifying-glass"></i>
             <input type="search" placeholder="Search pastries..." />
@@ -59,66 +60,19 @@
         </nav>
       </div>
     </header>
-
     <main>
-      <section class="about-hero">
-        <div class="about-hero-inner">
-          <p class="about-label">OUR STORY</p>
-          <h1>
-            Baked with Passion,
-            <span class="highlight">Delivered with Care</span>
-          </h1>
-          <p class="about-intro">
-            Pastry Perfection started with a simple idea: everyone deserves a
-            freshly baked treat that feels made just for them. What began as
-            small batches shared with friends has grown into a bakery built on
-            the same promise — quality ingredients, made-from-scratch recipes,
-            and every order packed with care.
-          </p>
-        </div>
+      <section class="confirmation-section">
+        <i class="ph-fill ph-check-circle confirmation-icon"></i>
+        <h1>Order Sent!</h1>
+        <p>
+          Your order details were sent to us on WhatsApp. We'll confirm your
+          order and delivery time there shortly.
+        </p>
+        <a href="menu.html" class="cart-continue">Continue Shopping</a>
       </section>
 
-      <section class="about-story">
-        <div class="about-story-inner">
-          <div class="about-story-image">
-            <img
-              src="assets/white-box.png"
-              alt="Inside Pastry Perfection's kitchen"
-            />
-          </div>
-          <div class="about-story-text">
-            <h2>Why We Bake</h2>
-            <p>
-              Every doughnut, loaf, and cupcake we make starts the same way —
-              with real ingredients, no shortcuts, and a lot of care. We bake in
-              small batches every day so what you receive is always fresh, never
-              sitting around waiting to be ordered.
-            </p>
-            <p>
-              We're based in Lagos, Nigeria, and every order is packed and
-              delivered the same day it's made — because good pastry shouldn't
-              have to travel far to reach you.
-            </p>
-          </div>
-        </div>
-      </section>
+      <!-- footer section -->
 
-      <section class="about-stats">
-        <div class="about-stats-inner">
-          <div>
-            <h3>100%</h3>
-            <p>Fresh, Baked Daily</p>
-          </div>
-          <div>
-            <h3>500+</h3>
-            <p>Happy Customers</p>
-          </div>
-          <div>
-            <h3>0</h3>
-            <p>Preservatives Used</p>
-          </div>
-        </div>
-      </section>
       <footer id="contact">
         <div class="footer-section">
           <div class="footer-heading">
@@ -157,7 +111,7 @@
             <p><i class="ph ph-phone"></i>+234 703 413 6697</p>
             <p>
               <i class="ph ph-envelope-simple"></i
-              >hellopastryperfection@gmail.com
+              >hello@pastryperfection.com
             </p>
             <p><i class="ph ph-map-pin-line"></i>Lagos, Nigeria</p>
           </div>
@@ -167,6 +121,5 @@
         </div>
       </footer>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>
