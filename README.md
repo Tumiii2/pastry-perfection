@@ -56,13 +56,13 @@ This project takes a bakery site I designed in Figma and turns it into a fully c
 ## Screenshots
 
 ### Home Page
-![Home Page](assets/homepage.jpg)
+![Home Page](assets/homepage.JPG)
 
 ### Product Page
-![Menu Page](assets/menupage.jpg)
+![Menu Page](assets/menupage.JPG)
 
 ### Mobile View
-![Mobile View](assets/mobileview.jpg)
+![Mobile View](assets/mobile-view.jpeg)
 
 ## Author
 
