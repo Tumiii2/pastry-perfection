@@ -1,26 +1,36 @@
-# Pastry Perfection — Product Page
+# Pastry Perfection — Bakery Website
 
-A responsive bakery product page built from a custom Figma design, focused on practicing real-world layout and styling with HTML and CSS.
+A responsive bakery website built from a custom Figma design, focused on practicing real-world layout and styling with HTML, CSS, and JavaScript. What started as a single product page has grown into a full multi-page site with a home page, menu, about, contact, and individual product pages.
 
-**Live Demo:** [Add your deployed link here]
-**Design:** https://www.figma.com/design/l2NBnALvkAfUQzQ8MPENED/Pastry-Perfection---Product-Page?node-id=0-1&t=qV4rwyZbAtMxL57K-1
+**Live Demo:** https://tumiii2.github.io/pastry-perfection/
 
 ## About
 
-This project takes a product page I designed in Figma and turns it into a fully coded, functioning webpage. The goal was to move past theory and get comfortable translating a design into clean, structured HTML and CSS — including layout, spacing, typography,responsive components and interactive features built with JavaScript.
+This project takes a bakery site I designed in Figma and turns it into a fully coded, functioning website. The goal was to move past theory and get comfortable translating a design into clean, structured HTML and CSS — including layout, spacing, typography, responsive components, and interactive features built with JavaScript.
+
+## Pages
+
+- **Home** — hero section, featured product collections, delivery & freshness guarantee, newsletter signup
+- **Menu** — full product listing linking out to individual product pages
+- **About** — brand story and info
+- **Contact** — contact details and form
+- **Product Page** — image, price, ratings, description, thumbnail gallery, and reviews for each item
 
 ## Features
 
+- Home page hero with call-to-action buttons (Shop Now / Order on WhatsApp)
+- Product collection grid linking to individual product pages
 - Product detail section with image, price, ratings, and description
 - Image thumbnail gallery
 - Customer review cards
 - Delivery & freshness guarantee section
 - Newsletter signup section
-- Custom footer with navigation and social links
+- WhatsApp order integration
+- Custom footer with navigation, customer service links, and contact info
 
 ## Built With
 
-- **HTML5** – semantic page structure
+- **HTML5** – semantic page structure across multiple pages
 - **CSS3** – Flexbox for layout, custom styling, responsive spacing
 - **Figma** – original design
 - **JavaScript** – DOM manipulation, event listeners, form validation
@@ -31,6 +41,7 @@ This project takes a product page I designed in Figma and turns it into a fully 
 
 - Flexbox layout (rows, columns, alignment, spacing)
 - Translating a Figma design into pixel-accurate HTML/CSS
+- Structuring a multi-page site with shared navigation and footer
 - Debugging common CSS issues (margin collapsing, flex-shrink, specificity)
 - Structuring semantic HTML with meaningful sections
 - Typography and consistent spacing systems across a page
@@ -40,11 +51,18 @@ This project takes a product page I designed in Figma and turns it into a fully 
 - Form validation using regular expressions (email pattern matching)
 - CSS hover and active states for interactive feedback
 - Anchor-link navigation with smooth scrolling
+- Linking related pages together (menu → product page, home → menu, etc.)
 
 ## Screenshots
 
-![Add to cart pop-up interaction](<image 1.jpeg>)
-![Email validation pop-up](<image 2.jpeg>)
+### Home Page
+![Home Page](assets/homepage.JPG)
+
+### Product Page
+![Menu Page](assets/menupage.JPG)
+
+### Mobile View
+![Mobile View](assets/mobile-view.jpeg)
 
 ## Author
 
