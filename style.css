@@ -3333,7 +3333,8 @@ h6 {
   }
 
   .footer-section {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     padding: 45px 20px;
     gap: 30px;
   }
