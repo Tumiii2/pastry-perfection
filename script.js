@@ -267,6 +267,17 @@ if (hamburger && navBar) {
   });
 }
 
+// Nav search redirect
+const navSearchInput = document.querySelector(".nav-search input");
+
+if (navSearchInput) {
+  navSearchInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      window.location.href = `menu.html?search=${encodeURIComponent(this.value)}`;
+    }
+  });
+}
+
 // Hero background image rotation
 const heroImages = [
   "assets/hero-img-1.jpg",
