@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add to cart</title>
+    <title>Terms & Conditions</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -62,59 +62,89 @@
     </header>
 
     <main>
-      <section class="cart-section">
-        <h1>Your Cart</h1>
-
-        <div class="cart-layout">
-          <div class="cart-items-column">
-            <div class="cart-empty">
-              <img
-                src="assets/cart-img (2).png"
-                alt="Empty cart"
-                class="cart-empty-img"
-              />
-              <h2>Nothing delicious here yet!</h2>
-              <p>
-                Discover freshly baked doughnuts, pastries, and cookies made
-                with love.
-              </p>
-              <a href="menu.html" class="btn-1">Explore Our Menu →</a>
-            </div>
-            <div class="cart-items"></div>
-          </div>
-
-          <div class="cart-summary">
-            <h2>Order Summary</h2>
-
-            <div class="summary-row">
-              <span>Subtotal</span>
-              <span class="cart-subtotal-amount">₦0</span>
-            </div>
-
-            <div class="summary-row">
-              <span>Delivery Fee</span>
-              <span class="cart-delivery-amount">₦0</span>
-            </div>
-
-            <div class="summary-row cart-total-row">
-              <span>Total</span>
-              <span class="cart-total-amount">₦0</span>
-            </div>
-
-            <button class="checkout-btn">Checkout</button>
-
-            <p class="or-divider">or</p>
-
-            <a href="#" class="whatsapp-order-cart">
-              <i class="ph ph-whatsapp-logo"></i>
-              Order on WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <a href="menu.html" class="cart-continue">← Continue Shopping</a>
+      <section class="menu-hero">
+        <h1>Terms &amp; Conditions</h1>
+        <p class="breadcrumb">
+          <a href="index.html">Home</a><span>/</span>Terms &amp; Conditions
+        </p>
       </section>
 
+      <section class="policy-section">
+        <div class="terms-layout">
+          <nav class="terms-nav">
+            <h3>Contents</h3>
+            <a href="#orders">Orders</a>
+            <a href="#payment">Pricing &amp; payment</a>
+            <a href="#delivery">Delivery</a>
+            <a href="#cancellations">Cancellations &amp; refunds</a>
+            <a href="#allergens">Allergens</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <div class="policy-content">
+            <p>
+              By ordering from Pastry Perfection you agree to the terms below.
+              Please read them before you place an order.
+            </p>
+
+            <h2 id="orders">Orders</h2>
+            <p>
+              An order is confirmed once we've replied to you with the details
+              and the delivery time. We may decline or reschedule an order if
+              we're fully booked.
+            </p>
+
+            <h2 id="payment">Pricing &amp; payment</h2>
+            <p>
+              All prices are in Nigerian Naira (₦). Payment is made before we
+              start baking, by bank transfer or as agreed with us on WhatsApp.
+            </p>
+
+            <h2 id="delivery">Delivery</h2>
+            <p>
+              Delivery fees and timing are explained on our
+              <a href="delivery.html">Delivery Information</a> page. We aren't
+              responsible for delays caused by traffic, weather or an incorrect
+              address.
+            </p>
+
+            <h2 id="cancellations">Cancellations &amp; refunds</h2>
+            <p>
+              Every order is baked fresh, so cancellations are only possible
+              before baking begins. If something is wrong with your order,
+              contact us within 24 hours of delivery with your order details and
+              a photo, and we'll refund you or replace it.
+            </p>
+
+            <h2 id="allergens">Allergens</h2>
+            <p>
+              Our pastries may contain or come into contact with milk, eggs,
+              wheat, nuts and other allergens. If you have an allergy, tell us
+              before you order so we can advise you.
+            </p>
+
+            <h2 id="privacy">Privacy Policy</h2>
+            <p>
+              We collect your name, phone number and delivery address only to
+              prepare and deliver your order and to reply to your messages. We
+              don't sell your information, and we only share it with people who
+              need it to complete your delivery.
+            </p>
+            <p>
+              You can ask us to update or delete your details at any time by
+              contacting us.
+            </p>
+
+            <h2 id="contact">Contact</h2>
+            <p>
+              Questions about these terms? Reach us on the
+              <a href="contact.html">Contact page</a> or on WhatsApp.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- footer-section -->
       <footer id="contact">
         <div class="footer-section">
           <div class="footer-heading">
@@ -161,7 +191,8 @@
           <p>&copy; 2026 Pastry Perfection. All rights reserved.</p>
         </div>
       </footer>
+
+      <script src="script.js"></script>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>

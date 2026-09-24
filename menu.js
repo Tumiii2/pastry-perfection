@@ -88,3 +88,52 @@ if (searchParam && searchInput) {
   searchInput.value = searchParam;
   searchInput.dispatchEvent(new Event("input"));
 }
+
+// page logic
+const ITEMS_PER_PAGE = 8;
+
+function showPage(page) {
+  const itemsArray = Array.from(menuItems);
+  const start = (page - 1) * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+
+  itemsArray.forEach((item, index) => {
+    if (index >= start && index < end) {
+      item.classList.remove("hidden");
+    } else {
+      item.classList.add("hidden");
+    }
+  });
+}
+const pageButtons = document.querySelectorAll(".page-num");
+
+pageButtons.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    pageButtons.forEach((b) => b.classList.remove("active"));
+    this.classList.add("active");
+
+    const pageNumber = Number(this.textContent);
+    showPage(pageNumber);
+  });
+});
+showPage(1);
+
+let currentPage = 1;
+const totalPages = Math.ceil(menuItems.length / ITEMS_PER_PAGE);
+
+const nextButton = document.querySelector(".page-next");
+
+if (nextButton) {
+  nextButton.addEventListener("click", function () {
+    if (currentPage < totalPages) {
+      currentPage++;
+      showPage(currentPage);
+
+      pageButtons.forEach((b) => b.classList.remove("active"));
+      const matchingButton = Array.from(pageButtons).find(
+        (btn) => Number(btn.textContent) === currentPage,
+      );
+      if (matchingButton) matchingButton.classList.add("active");
+    }
+  });
+}

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add to cart</title>
+    <title>Delivery Pastry Perfection</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
@@ -62,59 +62,105 @@
     </header>
 
     <main>
-      <section class="cart-section">
-        <h1>Your Cart</h1>
-
-        <div class="cart-layout">
-          <div class="cart-items-column">
-            <div class="cart-empty">
-              <img
-                src="assets/cart-img (2).png"
-                alt="Empty cart"
-                class="cart-empty-img"
-              />
-              <h2>Nothing delicious here yet!</h2>
-              <p>
-                Discover freshly baked doughnuts, pastries, and cookies made
-                with love.
-              </p>
-              <a href="menu.html" class="btn-1">Explore Our Menu →</a>
-            </div>
-            <div class="cart-items"></div>
-          </div>
-
-          <div class="cart-summary">
-            <h2>Order Summary</h2>
-
-            <div class="summary-row">
-              <span>Subtotal</span>
-              <span class="cart-subtotal-amount">₦0</span>
-            </div>
-
-            <div class="summary-row">
-              <span>Delivery Fee</span>
-              <span class="cart-delivery-amount">₦0</span>
-            </div>
-
-            <div class="summary-row cart-total-row">
-              <span>Total</span>
-              <span class="cart-total-amount">₦0</span>
-            </div>
-
-            <button class="checkout-btn">Checkout</button>
-
-            <p class="or-divider">or</p>
-
-            <a href="#" class="whatsapp-order-cart">
-              <i class="ph ph-whatsapp-logo"></i>
-              Order on WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <a href="menu.html" class="cart-continue">← Continue Shopping</a>
+      <section class="menu-hero">
+        <h1>Delivery Information</h1>
+        <p class="breadcrumb">
+          <a href="index.html">Home</a><span>/</span>Delivery Information
+        </p>
       </section>
 
+      <section class="policy-section">
+        <div class="policy-wide">
+          <!-- Highlights -->
+          <div class="info-cards">
+            <div class="info-card">
+              <i class="ph ph-map-pin"></i>
+              <h3>Lagos-wide</h3>
+              <p>We deliver across the mainland and the island.</p>
+            </div>
+            <div class="info-card">
+              <i class="ph ph-clock"></i>
+              <h3>Within 24 hours</h3>
+              <p>Baked fresh to order, then brought straight to your door.</p>
+            </div>
+            <div class="info-card">
+              <i class="ph ph-package"></i>
+              <h3>Carefully packed</h3>
+              <p>Every box is sealed so your pastries arrive fresh.</p>
+            </div>
+          </div>
+
+          <!-- Fees -->
+          <h2 class="section-title">Delivery fees</h2>
+          <div class="fee-cards reveal">
+            <div class="fee-card">
+              <p class="fee-label">Your local area</p>
+              <p class="fee-price">From ₦1,500</p>
+            </div>
+            <div class="fee-card">
+              <p class="fee-label">Mainland ↔ Island</p>
+              <p class="fee-price">From ₦2,500</p>
+            </div>
+            <div class="fee-card featured">
+              <p class="fee-label">Orders above ₦30,000</p>
+              <p class="fee-price">Free delivery*</p>
+            </div>
+          </div>
+
+          <!-- How it works -->
+          <h2 class="section-title reveal">How it works</h2>
+          <div class="steps-timeline reveal">
+            <div class="step-card">
+              <span class="step-number">1</span>
+              <h3>Place your order</h3>
+              <p>Check out online or order on WhatsApp.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">2</span>
+              <h3>We confirm</h3>
+              <p>We check your address, time and order details with you.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">3</span>
+              <h3>Baked fresh</h3>
+              <p>Your order is baked and packed on the day.</p>
+            </div>
+            <div class="step-card">
+              <span class="step-number">4</span>
+              <h3>At your door</h3>
+              <p>Our rider delivers it to you, fresh and on time.</p>
+            </div>
+          </div>
+
+          <!-- Note -->
+          <div class="note-box reveal">
+            <i class="ph ph-info"></i>
+            <p>
+              Planning a party? Large or custom orders, like party trays, need
+              at least 48 hours' notice. *Free delivery may depend on your
+              location.
+            </p>
+          </div>
+
+          <!-- Call to action -->
+
+          <div class="cta-banner reveal">
+            <h2>Need to change or check an order?</h2>
+            <p>
+              Message us as soon as you can and we'll do our best to update it
+              before it goes out.
+            </p>
+            <div class="cta-buttons">
+              <a href="https://wa.me/2347034136697" class="cta-primary">
+                <i class="ph ph-whatsapp-logo"></i> Chat on WhatsApp
+              </a>
+              <a href="contact.html" class="cta-secondary">Contact us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer-section -->
       <footer id="contact">
         <div class="footer-section">
           <div class="footer-heading">
@@ -161,7 +207,8 @@
           <p>&copy; 2026 Pastry Perfection. All rights reserved.</p>
         </div>
       </footer>
+
+      <script src="script.js"></script>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>

@@ -558,3 +558,74 @@ if (data) {
     whatsappOrder.target = "_blank";
   }
 }
+/* Highlight the contents link for the section being read */
+const termsLinks = [...document.querySelectorAll(".terms-nav a")];
+
+if (termsLinks.length) {
+  const termsSections = termsLinks.map((link) =>
+    document.querySelector(link.getAttribute("href")),
+  );
+  let clickLock = false;
+
+  const setActive = (link) => {
+    termsLinks.forEach((l) => l.classList.toggle("active", l === link));
+  };
+
+  const updateActive = () => {
+    if (clickLock) return;
+
+    // the last heading that has reached the line under the header
+    let index = 0;
+    termsSections.forEach((section, i) => {
+      if (section.getBoundingClientRect().top <= 160) index = i;
+    });
+
+    // at the very bottom, the last section is the one being read
+    const atBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2;
+    if (atBottom) index = termsLinks.length - 1;
+
+    setActive(termsLinks[index]);
+  };
+
+  window.addEventListener("scroll", updateActive, { passive: true });
+  updateActive();
+
+  // clicked link becomes active immediately and stays until you scroll
+  termsLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      setActive(link);
+      clickLock = true;
+    });
+  });
+
+  ["wheel", "touchmove", "keydown"].forEach((evt) => {
+    window.addEventListener(evt, () => (clickLock = false), { passive: true });
+  });
+}
+
+/* FAQ accordion */
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+  const button = item.querySelector(".faq-question");
+
+  button.addEventListener("click", () => {
+    const wasOpen = item.classList.contains("open");
+
+    // close every item first
+    faqItems.forEach((other) => {
+      other.classList.remove("open");
+      other
+        .querySelector(".faq-question")
+        .setAttribute("aria-expanded", "false");
+    });
+
+    // then open this one, unless it was already open
+    if (!wasOpen) {
+      item.classList.add("open");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+});
